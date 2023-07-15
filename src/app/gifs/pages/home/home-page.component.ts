@@ -8,7 +8,8 @@ import { Gif } from '../../interfaces/gifs.interfaces';
 })
 export class HomePageComponent {
   constructor(private gifsService: GifsService) {
-    this.searchTag(gifsService.tagsHistory[0]);
+    if (gifsService.tagsHistory.length > 0)
+      this.searchTag(gifsService.tagsHistory[0]);
   }
 
   get gifs(): Gif[] {
